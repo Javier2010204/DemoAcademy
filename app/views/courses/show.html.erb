@@ -1,0 +1,17 @@
+<p><%= notice %></p>
+
+<p>
+    <b>Titulo</b>
+    <%= @course.title%>
+</p>
+
+<p>
+    <b>Titulo</b>
+    <%= @course.description%>
+</p>
+
+<p>
+    <b>Usuario</b>
+    <%= @course.user.username%>
+</p>
+<%= link_to 'editar', edit_course_path(@course)%>
