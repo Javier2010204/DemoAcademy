@@ -1,0 +1,31 @@
+%h1 Listing classrooms
+
+%table
+  %thead
+    %tr
+      %th Days
+      %th Start hour
+      %th End hour
+      %th Start day
+      %th End day
+      %th User
+      %th
+      %th
+      %th
+
+  %tbody
+    - @classrooms.each do |classroom|
+      %tr
+        %td= classroom.days
+        %td= classroom.start_hour
+        %td= classroom.end_hour
+        %td= classroom.start_day
+        %td= classroom.end_day
+        %td= classroom.user
+        %td= link_to 'Show', classroom
+        %td= link_to 'Edit', edit_classroom_path(classroom)
+        %td= link_to 'Destroy', classroom, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Classroom', new_classroom_path

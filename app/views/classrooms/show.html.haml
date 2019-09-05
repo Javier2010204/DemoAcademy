@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Days:
+  = @classroom.days
+%p
+  %b Start hour:
+  = @classroom.start_hour
+%p
+  %b End hour:
+  = @classroom.end_hour
+%p
+  %b Start day:
+  = @classroom.start_day
+%p
+  %b End day:
+  = @classroom.end_day
+%p
+  %b User:
+  = @classroom.user
+
+= link_to 'Edit', edit_classroom_path(@classroom)
+\|
+= link_to 'Back', classrooms_path

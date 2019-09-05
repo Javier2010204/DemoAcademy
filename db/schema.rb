@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_27_163711) do
+ActiveRecord::Schema.define(version: 2019_09_05_165255) do
+
+  create_table "classrooms", force: :cascade do |t|
+    t.string "days"
+    t.time "start_hour"
+    t.time "end_hour"
+    t.date "start_day"
+    t.date "end_day"
+    t.integer "user_id"
+    t.integer "course_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_classrooms_on_course_id"
+    t.index ["user_id"], name: "index_classrooms_on_user_id"
+  end
 
   create_table "courses", force: :cascade do |t|
     t.string "title"
@@ -18,6 +32,7 @@ ActiveRecord::Schema.define(version: 2019_08_27_163711) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "duration"
     t.index ["user_id"], name: "index_courses_on_user_id"
   end
 
@@ -31,6 +46,7 @@ ActiveRecord::Schema.define(version: 2019_08_27_163711) do
     t.text "bio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "permission_level"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

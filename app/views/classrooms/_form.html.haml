@@ -1,0 +1,28 @@
+= form_for @classroom do |f|
+  - if @classroom.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@classroom.errors.count, "error")} prohibited this classroom from being saved:"
+      %ul
+        - @classroom.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :days
+    = f.text_field :days
+  .field
+    = f.label :start_hour
+    = f.time_select :start_hour
+  .field
+    = f.label :end_hour
+    = f.time_select :end_hour
+  .field
+    = f.label :start_day
+    = f.date_select :start_day
+  .field
+    = f.label :end_day
+    = f.date_select :end_day
+  .field
+    = f.label :user
+    = f.text_field :user
+  .actions
+    = f.submit 'Save'
