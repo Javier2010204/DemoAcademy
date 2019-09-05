@@ -1,5 +1,6 @@
 class ClassroomsController < ApplicationController
   before_action :set_classroom, only: [:show, :edit, :update, :destroy]
+  before_action :set_course
 
   # GET /classrooms
   # GET /classrooms.json
@@ -24,15 +25,17 @@ class ClassroomsController < ApplicationController
   # POST /classrooms
   # POST /classrooms.json
   def create
-    @classroom = Classroom.new(classroom_params)
+    @classroom = current_user.classrooms.new(classroom_params)
+    @classroom.course = @course
+
 
     respond_to do |format|
       if @classroom.save
-        format.html { redirect_to @classroom, notice: 'Classroom was successfully created.' }
+        format.html { redirect_to @course, notice: 'Classroom was successfully created.' }
         format.json { render :show, status: :created, location: @classroom }
       else
-        format.html { render :new }
-        format.json { render json: @classroom.errors, status: :unprocessable_entity }
+        format.html { render @course, notice: 'error' }
+        format.json { render json: @course.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -67,8 +70,12 @@ class ClassroomsController < ApplicationController
       @classroom = Classroom.find(params[:id])
     end
 
+    def set_course
+        @course = Course.find(params[:course_id])
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def classroom_params
-      params.require(:classroom).permit(:days, :start_hour, :end_hour, :start_day, :end_day, :user_id)
+      params.require(:classroom).permit(:days, :start_hour, :end_hour, :start_day, :end_day, :course_id)
     end
 end

@@ -28,7 +28,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise'
 
-gem 'haml-rails'
+gem 'annotate'
+
 gem 'jquery-rails'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'

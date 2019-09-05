@@ -15,3 +15,12 @@
     <%= @course.user.username%>
 </p>
 <%= link_to 'editar', edit_course_path(@course)%>
+
+<%= render 'classrooms/form'%>
+<% @course.classrooms.each do |classroom|%>
+    <h1><%= classroom.days %></h1>
+    <p>><%= classroom.start_hour.strftime("%H:%M")%></p>
+    <p>><%= classroom.end_hour.strftime("%H:%M")%></p>
+    <p>><%= classroom.start_day%></p>
+    <p>><%= classroom.end_day%></p>
+<% end %>

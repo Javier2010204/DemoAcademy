@@ -1,27 +1,17 @@
 <h1>Listado de cursos</h1>
 
-<table>
-    <thead>
-        <tr>
-            <th>Titulo</th>
-            <th>Descripcion</th>
-            <th>Creado por: </th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @courses.each do |course| %>
-            <tr>
-                    <td><%= course.title %></td>
-                    <td><%= course.description %></td>
-                    <td><%= course.user.username %></td>
-                    <td>
-                        <%= link_to 'Ver', course%>
-                        <%= link_to 'Editar', edit_course_path(course)%>
-                        <%= link_to 'Borrar', course, method: :delete, data: {confirm: 'Se borrara peramanentemente'}%>
-                    </td>
-            </tr>
-        <% end %>
-        <br>
-        <%= link_to 'Crear nuevo curso', new_course_path %>
-    </tbody>
-</table>
+<% @courses.each do |course| %>
+
+    <div class="row center-xs">
+        <div class="col-xs-6">
+            <div class="box">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Special title treatment</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+    </div>
+<% end %>

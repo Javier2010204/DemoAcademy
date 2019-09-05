@@ -1,0 +1,31 @@
+<%= form_for([@course, @classroom]) do |form| %>
+
+  <div class="field">
+    <%= form.label :days %>
+    <%= form.text_field :days %>
+  </div>
+
+  <div class="field">
+    <%= form.label :start_hour %>
+    <%= form.time_select :start_hour %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end_hour %>
+    <%= form.time_select :end_hour %>
+  </div>
+
+  <div class="field">
+    <%= form.label :start_day %>
+    <%= form.date_select :start_day %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end_day %>
+    <%= form.date_select :end_day %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

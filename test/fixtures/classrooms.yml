@@ -1,17 +1,35 @@
+# == Schema Information
+#
+# Table name: classrooms
+#
+#  id         :integer          not null, primary key
+#  days       :string
+#  start_hour :time
+#  end_hour   :time
+#  start_day  :date
+#  end_day    :date
+#  user_id    :integer
+#  course_id  :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
   days: MyString
-  start_hour: 2019-09-05 10:52:55
-  end_hour: 2019-09-05 10:52:55
+  start_hour: 2019-09-05 11:19:18
+  end_hour: 2019-09-05 11:19:18
   start_day: 2019-09-05
   end_day: 2019-09-05
   user: one
+  course: one
 
 two:
   days: MyString
-  start_hour: 2019-09-05 10:52:55
-  end_hour: 2019-09-05 10:52:55
+  start_hour: 2019-09-05 11:19:18
+  end_hour: 2019-09-05 11:19:18
   start_day: 2019-09-05
   end_day: 2019-09-05
   user: two
+  course: two

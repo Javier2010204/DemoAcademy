@@ -14,6 +14,7 @@ class ClassroomsTest < ApplicationSystemTestCase
     visit classrooms_url
     click_on "New Classroom"
 
+    fill_in "Course", with: @classroom.course_id
     fill_in "Days", with: @classroom.days
     fill_in "End Day", with: @classroom.end_day
     fill_in "End Hour", with: @classroom.end_hour
@@ -30,6 +31,7 @@ class ClassroomsTest < ApplicationSystemTestCase
     visit classrooms_url
     click_on "Edit", match: :first
 
+    fill_in "Course", with: @classroom.course_id
     fill_in "Days", with: @classroom.days
     fill_in "End Day", with: @classroom.end_day
     fill_in "End Hour", with: @classroom.end_hour
