@@ -23,6 +23,7 @@ class User < ApplicationRecord
 
     has_many :courses
     has_many :classrooms
+    has_many :homeworks
 
 
 end

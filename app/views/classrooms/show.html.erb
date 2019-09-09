@@ -35,5 +35,10 @@
   <%= @classroom.course %>
 </p>
 
-<%= link_to 'Edit', edit_classroom_path(@classroom) %> |
-<%= link_to 'Back', classrooms_path %>
+<%= render 'homeworks/form' %>
+<% @classroom.homeworks.each do |homework| %>
+    <p><%= homework.title %></p>
+<% end %>
+
+<%= link_to 'Edit', edit_course_classroom_path(@classroom) %> |
+<%= link_to 'Agregar Tarea', new_course_classroom_homework_path(classroom_id: @classroom) %>

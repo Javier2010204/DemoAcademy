@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_05_171918) do
+ActiveRecord::Schema.define(version: 2019_09_09_041747) do
 
   create_table "classrooms", force: :cascade do |t|
     t.string "days"
@@ -34,6 +34,22 @@ ActiveRecord::Schema.define(version: 2019_09_05_171918) do
     t.datetime "updated_at", null: false
     t.integer "duration"
     t.index ["user_id"], name: "index_courses_on_user_id"
+  end
+
+  create_table "homeworks", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.datetime "delivery_date"
+    t.integer "classroom_id"
+    t.integer "user_id"
+    t.string "archivo_file_name"
+    t.string "archivo_content_type"
+    t.bigint "archivo_file_size"
+    t.datetime "archivo_updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["classroom_id"], name: "index_homeworks_on_classroom_id"
+    t.index ["user_id"], name: "index_homeworks_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,0 +1,33 @@
+# == Schema Information
+#
+# Table name: homeworks
+#
+#  id                   :integer          not null, primary key
+#  title                :string
+#  description          :text
+#  delivery_date        :datetime
+#  classroom_id         :integer
+#  user_id              :integer
+#  archivo_file_name    :string
+#  archivo_content_type :string
+#  archivo_file_size    :bigint
+#  archivo_updated_at   :datetime
+#  created_at           :datetime         not null
+#  updated_at           :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  delivery_date: 2019-09-08 22:17:47
+  classroom: one
+  user: one
+
+two:
+  title: MyString
+  description: MyText
+  delivery_date: 2019-09-08 22:17:47
+  classroom: two
+  user: two

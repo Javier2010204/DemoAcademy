@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
-  resources :classrooms
     resources :courses do
-        resources :classrooms, except: [:index]   
+        resources :classrooms, except: [:index] do
+            resources :homeworks, except: [:index]
+        end
     end
     authenticated :user do
         root 'index#home'
