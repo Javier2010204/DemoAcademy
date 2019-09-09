@@ -13,10 +13,27 @@
 <%= link_to 'editar', edit_course_path(@course)%>
 
 <%= render 'classrooms/form'%>
-<% @course.classrooms.each do |classroom|%>
-    <h1><%= classroom.days %></h1>
-    <p>><%= classroom.start_hour.strftime("%H:%M")%></p>
-    <p>><%= classroom.end_hour.strftime("%H:%M")%></p>
-    <p>><%= classroom.start_day%></p>
-    <p>><%= classroom.end_day%></p>
-<% end %>
+<div class="container">
+    <div class="row text-center">
+        <% @course.classrooms.each do |classroom|%>
+            <div class="col-sm-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= classroom.days %></h5>
+                            <p class="card-text">
+                                <span>Hora</span>
+                                <%= classroom.start_hour.strftime("%H:%M")%> -
+                                <%= classroom.end_hour.strftime("%H:%M")%>
+                            </p>
+                            <p class="card-text">
+                                Fecha de inicio
+                                <span><%= classroom.start_day%></span>
+                            </p>
+                            <p class="card-text"><%= classroom.end_day%></p>
+                            <%= link_to 'Ver clase', course_classroom_url(course_id: classroom.course_id), class: 'btn btn-primary'%>
+                        </div>
+                    </div>
+                </div>
+        <% end %>
+    </div>
+</div>
